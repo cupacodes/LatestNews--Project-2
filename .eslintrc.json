@@ -12,7 +12,6 @@
         "no-irregular-whitespace":"error",
         "no-unreachable": "error",
         "curly": "error",
-        "dot-notation": "error",
         "eqeqeq": "error",
         "no-empty-function": "error",
         "no-multi-spaces": "error",
@@ -22,7 +21,6 @@
         "no-fallthrough": "error",
         "no-unused-vars": "error",
         "no-use-before-define": "error",
-        "no-redeclare": "error",
         "camelcase": "error",
         "brace-style": "error",
         "indent": [
@@ -31,7 +29,7 @@
         ],
         "quotes": [
             "error",
-            "single"
+            "double"
         ],
         "semi": [
             "error",
