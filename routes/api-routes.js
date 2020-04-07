@@ -6,72 +6,72 @@ var db = require("../models");
 module.exports = function(app) {
 
   // GET route for getting all of the posts
-  app.get("/api/posts/", function(req, res) {
-    db.Post.findAll({})
-      .then(function(dbPost) {
-        res.json(dbPost);
+  app.get("/api/article/", function(req, res) {
+    db.Article.findAll({})
+      .then(function(dbArticle) {
+        res.json(dbArticle);
       });
   });
 
-  // Get route for returning posts of a specific category
-  app.get("/api/posts/category/:category", function(req, res) {
-    db.Post.findAll({
+  // Get route for returning article of a specific category
+  app.get("/api/article/category/:category", function(req, res) {
+    db.Article.findAll({
       where: {
         category: req.params.category
       }
     })
-      .then(function(dbPost) {
-        res.json(dbPost);
+      .then(function(dbArticle) {
+        res.json(dbArticle);
       });
   });
 
   // Get route for retrieving a single post
-  app.get("/api/posts/:id", function(req, res) {
-    db.Post.findOne({
+  app.get("/api/article/:id", function(req, res) {
+    db.Article.findOne({
       where: {
         id: req.params.id
       }
     })
-      .then(function(dbPost) {
-        res.json(dbPost);
+      .then(function(dbArticle) {
+        res.json(dbArticle);
       });
   });
 
   // POST route for saving a new post
-  app.post("/api/posts", function(req, res) {
+  app.post("/api/article", function(req, res) {
     console.log(req.body);
-    db.Post.create({
+    db.Article.create({
       title: req.body.title,
       body: req.body.body,
       category: req.body.category
     })
-      .then(function(dbPost) {
-        res.json(dbPost);
+      .then(function(dbArticle) {
+        res.json(dbArticle);
       });
   });
 
-  // DELETE route for deleting posts
-  app.delete("/api/posts/:id", function(req, res) {
-    db.Post.destroy({
+  // DELETE route for deleting article
+  app.delete("/api/article/:id", function(req, res) {
+    db.Article.destroy({
       where: {
         id: req.params.id
       }
     })
-      .then(function(dbPost) {
-        res.json(dbPost);
+      .then(function(dbArticle) {
+        res.json(dbArticle);
       });
   });
 
-  // PUT route for updating posts
-  app.put("/api/posts", function(req, res) {
-    db.Post.update(req.body,
+  // PUT route for updating article
+  app.put("/api/article", function(req, res) {
+    db.Article.update(req.body,
       {
         where: {
           id: req.body.id
         }
       })
-      .then(function(dbPost) {
-        res.json(dbPost);
+      .then(function(dbArticle) {
+        res.json(dbArticle);
       });
   });
 };
